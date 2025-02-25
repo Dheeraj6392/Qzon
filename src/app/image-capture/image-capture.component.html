@@ -1,0 +1,9 @@
+
+<div class="container">
+    <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+    <img *ngIf="imagePreview" [src]="imagePreview" alt="Preview" width="200" />
+    <input type="text" placeholder="Enter Semester">
+    <input type="text" placeholder="Enter Year">
+    <p *ngIf="uploadMessage">{{ uploadMessage }}</p>
+    <button (click)="uploadImage()">Upload</button>
+</div>

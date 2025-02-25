@@ -1,0 +1,22 @@
+.header{
+    height: 55px;
+}
+
+.home{
+    margin-top: 100px;
+}
+
+/* .background-container{
+    width: 100%;
+    height:100vh;
+    background-image: url('/images/background2.jpeg');
+    background-size : cover;
+    background-position : center;
+    background-repeat: no-repeat;
+
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family : 'Roboto' , sans-serif;
+  } */

@@ -1,0 +1,28 @@
+
+.container {
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+    height: 100vh;            /* Full viewport height */
+    gap: 30px;                /* More space between boxes */
+}
+
+.box1, .box2 {
+    padding: 20px 50px;       /* Bigger size */
+    font-size: 22px;          /* Larger text */
+    font-weight: bold;
+    text-align: center;
+    border-radius: 12px;      /* Rounded corners */
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    /* background: linear-gradient(135deg, #007bff, #fff); Cool gradient */
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+}
+
+.box1:hover, .box2:hover {
+    transform: scale(1.1);  /* Slight zoom effect on hover */
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.3);
+}

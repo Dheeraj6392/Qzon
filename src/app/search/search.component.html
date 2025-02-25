@@ -1,0 +1,19 @@
+<div *ngIf="search">
+    <form #userSearch="ngForm" (ngSubmit)="uploadImage(userSearch.value)" class="container">
+        <input type="text" placeholder="Enter Semester" name="sem" ngModel>
+        <input type="text" placeholder="Enter Year" name="year" ngModel>
+        <button>Upload</button>
+    </form>
+
+</div>
+
+<div *ngIf="!search">
+    <div class="card" *ngFor="let item of list">
+        <img alt="Card Image" class="card-img">
+        <div class="card-content">
+            <h3>{{item.sem }} {{item.year}}</h3>
+            <p>This is a description of the card. Add any content here.</p>
+            <button class="btn">Learn More</button>
+        </div>
+    </div>
+</div>

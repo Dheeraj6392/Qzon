@@ -1,0 +1,39 @@
+{
+  "upload": [
+    {
+      "name": "dheeraj",
+      "id": "5323"
+    },
+    {
+      "id": "030f",
+      "date": "12-07-25",
+      "password": "dhe123@"
+    },
+    {
+      "id": "2fab",
+      "name": "",
+      "password": "",
+      "email": ""
+    },
+    {
+      "id": "24f5",
+      "name": "dheeraj sonkar",
+      "password": "dhe123son@",
+      "email": "dheerajsonkar9919@gmail.com"
+    }
+  ],
+  "user": [
+    {
+      "id": "d898",
+      "name": "dheeraj",
+      "password": "dhe123@",
+      "email": "dheerajsonkar3009@gmail.com"
+    },
+    {
+      "id": "4393",
+      "name": "Anurag",
+      "password": "anu12@",
+      "email": "anuragsonkar9919@gmail.com"
+    }
+  ]
+}
