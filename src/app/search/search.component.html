@@ -1,5 +1,5 @@
 <div *ngIf="search">
-    <form #userSearch="ngForm" (ngSubmit)="uploadImage(userSearch.value)" class="container">
+    <form #userSearch="ngForm" (ngSubmit)="searchQp(userSearch.value)" class="container">
         <input type="text" placeholder="Enter Semester" name="sem" ngModel>
         <input type="text" placeholder="Enter Year" name="year" ngModel>
         <button>Upload</button>
@@ -7,7 +7,7 @@
 
 </div>
 
-<div *ngIf="!search">
+<div *ngIf="!search" class="search">
     <div class="card" *ngFor="let item of list">
         <img alt="Card Image" class="card-img">
         <div class="card-content">

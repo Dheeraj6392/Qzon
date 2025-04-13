@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Inject, PLATFORM_ID } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { login, SignUp } from './data-type';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { List, login, SignUp } from './data-type';
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -11,7 +11,7 @@ import { isPlatformBrowser } from '@angular/common';
 export class UserService {
   isSellerLoggedIn = new BehaviorSubject<boolean>(false);
   isLoginError = new EventEmitter<boolean>(false);
-
+  // list : List[] = [];
   constructor(
     private http: HttpClient, 
     private router: Router, 
@@ -58,5 +58,13 @@ export class UserService {
           this.isLoginError.emit(true);
         }
       });
+  }
+
+  insertQp(data : List) : Observable<any>{
+      return this.http.post('http://localhost:3000/qPapers' , data);
+  }
+
+  getQp(): Observable<any>{
+    return this.http.get('http://localhost:3000/qPapers');
   }
 }
