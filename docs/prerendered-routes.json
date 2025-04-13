@@ -1,0 +1,9 @@
+{
+  "routes": [
+    "/",
+    "/home",
+    "/ImgCapture",
+    "/search",
+    "/user-auth"
+  ]
+}
