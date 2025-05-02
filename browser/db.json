@@ -1,0 +1,83 @@
+{
+  "upload": [
+    {
+      "name": "dheeraj",
+      "id": "5323"
+    },
+    {
+      "id": "030f",
+      "date": "12-07-25",
+      "password": "dhe123@"
+    },
+    {
+      "id": "2fab",
+      "name": "",
+      "password": "",
+      "email": ""
+    },
+    {
+      "id": "24f5",
+      "name": "dheeraj sonkar",
+      "password": "dhe123son@",
+      "email": "dheerajsonkar9919@gmail.com"
+    }
+  ],
+  "user": [
+    {
+      "id": "d898",
+      "name": "dheeraj",
+      "password": "dhe123@",
+      "email": "dheerajsonkar3009@gmail.com"
+    },
+    {
+      "id": "4393",
+      "name": "Anurag",
+      "password": "anu12@",
+      "email": "anuragsonkar9919@gmail.com"
+    }
+  ],
+  "qPapers": [
+    {
+      "id": "94df",
+      "image": "https://www.filmibeat.com/wimg/desktop/2012/12/13548612746596.jpg",
+      "sem": "8",
+      "year": "9"
+    },
+    {
+      "id": "e5a1",
+      "image": "https://www.filmibeat.com/wimg/desktop/2012/12/13548612746596.jpg",
+      "sem": "1",
+      "year": "4"
+    },
+    {
+      "id": "09e8",
+      "image": "https://www.filmibeat.com/wimg/desktop/2012/12/13548612746596.jpg",
+      "sem": "8",
+      "year": "3"
+    },
+    {
+      "id": "8482",
+      "image": "https://www.filmibeat.com/wimg/desktop/2012/12/13548612746596.jpg",
+      "sem": "8",
+      "year": "9"
+    },
+    {
+      "id": "f4bf",
+      "image": "https://www.mumkins.in/cdn/shop/products/denim-jeans-for-kids-bl0612345-darkblue-1.jpg?v=1649143010&width=1800",
+      "sem": "1",
+      "year": "9"
+    },
+    {
+      "id": "08da",
+      "image": "",
+      "sem": "",
+      "year": ""
+    },
+    {
+      "id": "4e84",
+      "image": "https://www.filmibeat.com/wimg/desktop/2012/12/13548612746596.jpg",
+      "sem": "2",
+      "year": "9"
+    }
+  ]
+}
