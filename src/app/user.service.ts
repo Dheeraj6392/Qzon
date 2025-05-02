@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Inject, PLATFORM_ID } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { List, login, SignUp } from './data-type';
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
@@ -11,60 +12,55 @@ import { isPlatformBrowser } from '@angular/common';
 export class UserService {
   isSellerLoggedIn = new BehaviorSubject<boolean>(false);
   isLoginError = new EventEmitter<boolean>(false);
-  // list : List[] = [];
+
   constructor(
     private http: HttpClient, 
     private router: Router, 
-    @Inject(PLATFORM_ID) private platformId: object  // ✅ Inject PLATFORM_ID
-  ) { }
+    @Inject(PLATFORM_ID) private platformId: object
+  ) {}
 
   userSignUp(data: SignUp) {
-    this.http.post('http://localhost:3000/user', data, { observe: 'response' })
-      .subscribe((result) => {
-        console.warn(result);
-        if (result) {
-          if (isPlatformBrowser(this.platformId)) {  // ✅ Ensure it's running in browser
-            localStorage.setItem('user', JSON.stringify(result.body));
-          }
-          this.router.navigate(['home']);
-        }
-      });
+    // Simulate sign-up (no POST possible on GitHub Pages)
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('user', JSON.stringify(data));
+    }
+    this.router.navigate(['home']);
   }
 
   reloadSeller() {
-    if (isPlatformBrowser(this.platformId)) {  // ✅ Check before accessing localStorage
+    if (isPlatformBrowser(this.platformId)) {
       if (localStorage.getItem('user')) {
         this.isSellerLoggedIn.next(true);
         this.router.navigate(['home']);
       }
-    } else {
-      console.warn("localStorage is not available in SSR.");
     }
   }
 
   userLogin(data: login) {
-    this.http.get(`http://localhost:3000/user?email=${data.email}&password=${data.password}`, 
-      { observe: 'response' })
-      .subscribe((result: any) => {
-        console.warn(result);
-        if (result && result.body && result.body.length === 1) {
-          this.isLoginError.emit(false);
-          if (isPlatformBrowser(this.platformId)) {  // ✅ Ensure it's running in browser
-            localStorage.setItem('user', JSON.stringify(result.body));
-          }
-          this.router.navigate(['home']);
-        } else {
-          console.warn("Login failed");
-          this.isLoginError.emit(true);
+    this.http.get<any>('db.json').pipe(
+      map(res => res.user)
+    ).subscribe((users: any[]) => {
+      const matchedUser = users.find(u => u.email === data.email && u.password === data.password);
+      if (matchedUser) {
+        this.isLoginError.emit(false);
+        if (isPlatformBrowser(this.platformId)) {
+          localStorage.setItem('user', JSON.stringify(matchedUser));
         }
-      });
+        this.router.navigate(['home']);
+      } else {
+        this.isLoginError.emit(true);
+      }
+    });
   }
 
-  insertQp(data : List) : Observable<any>{
-      return this.http.post('http://localhost:3000/qPapers' , data);
+  insertQp(data: List): Observable<any> {
+    // Simulated insert (not supported on GitHub Pages)
+    return of({ success: true, message: 'Saved locally (simulation)' });
   }
 
-  getQp(): Observable<any>{
-    return this.http.get('http://localhost:3000/qPapers');
+  getQp(): Observable<any[]> {
+    return this.http.get<any>('db.json').pipe(
+      map(res => res.qPapers)
+    );
   }
 }
